@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learnix helps students learn, build, perform, and grow through practical internship programs." />
+  <title>Learnix | Learn • Build • Perform • Grow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header" id="home">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Learnix home"><span class="brand-mark">L</span> learnix<span class="brand-dot">.</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#domains" class="nav-link">Domains</a>
+        <a href="#about" class="nav-link">About Me</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a class="nav-cta" href="#domains">Explore Tracks <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR CAREER STARTS HERE</div>
+          <h1 id="hero-title">Turn your curiosity into <span class="gradient-text">real-world skills.</span></h1>
+          <p class="hero-tagline">Learn <span>•</span> Build <span>•</span> Perform <span>•</span> Grow</p>
+          <p class="hero-description">Build confidence through hands-on internship tracks, practical projects, and a community that helps you move forward.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#domains">Explore Internship Tracks <span aria-hidden="true">→</span></a>
+            <a class="button button-secondary" href="#about">Meet the Developer</a>
+          </div>
+          <div class="hero-proof">
+            <div class="avatar-stack" aria-hidden="true"><span>👩🏻‍💻</span><span>👨🏽‍💻</span><span>👩🏽‍💻</span></div>
+            <p><strong>Learn by doing.</strong><br><span>Build projects. Grow your future.</span></p>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Illustration representing learning and coding">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="art-glow"></div>
+          <div class="code-window">
+            <div class="window-top"><div class="window-dots"><i></i><i></i><i></i></div><span>your-next-step.js</span><span class="window-status">●</span></div>
+            <div class="code-lines">
+              <p><span class="line-number">01</span> <span class="code-purple">const</span> future = <span class="code-orange">"yours"</span>;</p>
+              <p><span class="line-number">02</span> </p>
+              <p><span class="line-number">03</span> <span class="code-purple">function</span> <span class="code-blue">grow</span>() {</p>
+              <p><span class="line-number">04</span> &nbsp;&nbsp;learn();</p>
+              <p><span class="line-number">05</span> &nbsp;&nbsp;build(<span class="code-orange">"projects"</span>);</p>
+              <p><span class="line-number">06</span> &nbsp;&nbsp;<span class="code-purple">return</span> success;</p>
+              <p><span class="line-number">07</span> }</p>
+            </div>
+            <div class="code-footer"><span>✓ Ready to grow</span><span>100% potential</span></div>
+          </div>
+          <div class="floating-card float-top"><span class="float-icon purple">✦</span><div><strong>Learn something new</strong><small>One step every day</small></div></div>
+          <div class="floating-card float-bottom"><span class="float-icon orange">↗</span><div><strong>Build your portfolio</strong><small>Make your skills visible</small></div></div>
+          <span class="decor decor-cross">✳</span><span class="decor decor-sparkle">✦</span>
+        </div>
+      </div>
+      <div class="hero-bottom container"><span>MADE FOR CURIOUS MINDS</span><div class="hero-line"></div><span>BUILT FOR WHAT'S NEXT</span></div>
+    </section>
+
+    <section class="section domains-section" id="domains">
+      <div class="container">
+        <div class="section-heading">
+          <div><div class="eyebrow"><span class="eyebrow-dot"></span> FIND YOUR PATH</div><h2>Explore internship <span class="gradient-text">tracks.</span></h2></div>
+          <p>Choose a domain, learn by building, and take the next step toward your career goals.</p>
+        </div>
+        <div class="domain-grid">
+          <article class="domain-card"><div class="domain-icon icon-orange">&lt;/&gt;</div><span class="card-index">01 / DEVELOPMENT</span><h3>Full Stack Development</h3><p>Create responsive interfaces and connect them to powerful backend services.</p><div class="tag-row"><span>HTML/CSS</span><span>JavaScript</span><span>React</span></div><a href="#contact" class="card-link" data-track="Full Stack Development">Explore track <span>↗</span></a></article>
+          <article class="domain-card"><div class="domain-icon icon-purple">✳</div><span class="card-index">02 / INTELLIGENCE</span><h3>AI / Machine Learning</h3><p>Explore intelligent systems, model training, and practical AI applications.</p><div class="tag-row"><span>Python</span><span>ML</span><span>AI</span></div><a href="#contact" class="card-link" data-track="AI / Machine Learning">Explore track <span>↗</span></a></article>
+          <article class="domain-card"><div class="domain-icon icon-green">▥</div><span class="card-index">03 / INSIGHTS</span><h3>Data Science</h3><p>Turn raw data into useful insights through analysis and visual storytelling.</p><div class="tag-row"><span>Python</span><span>SQL</span><span>Analytics</span></div><a href="#contact" class="card-link" data-track="Data Science">Explore track <span>↗</span></a></article>
+          <article class="domain-card"><div class="domain-icon icon-blue">☁</div><span class="card-index">04 / INFRASTRUCTURE</span><h3>Cloud Computing</h3><p>Learn cloud fundamentals, deployment workflows, and scalable services.</p><div class="tag-row"><span>Cloud</span><span>DevOps</span><span>Deploy</span></div><a href="#contact" class="card-link" data-track="Cloud Computing">Explore track <span>↗</span></a></article>
+          <article class="domain-card"><div class="domain-icon icon-red">J</div><span class="card-index">05 / PROGRAMMING</span><h3>Java Development</h3><p>Strengthen programming fundamentals and build structured applications.</p><div class="tag-row"><span>Java</span><span>OOP</span><span>APIs</span></div><a href="#contact" class="card-link" data-track="Java Development">Explore track <span>↗</span></a></article>
+          <article class="domain-card"><div class="domain-icon icon-yellow">Py</div><span class="card-index">06 / PROGRAMMING</span><h3>Python Development</h3><p>Write clean Python code and use it to solve real-world problems.</p><div class="tag-row"><span>Python</span><span>Automation</span><span>Logic</span></div><a href="#contact" class="card-link" data-track="Python Development">Explore track <span>↗</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <div class="about-blob"></div>
+          <div class="profile-card">
+            <div class="profile-avatar" role="img" aria-label="Developer avatar">👩🏻‍💻</div>
+            <span class="profile-status"><span></span> OPEN TO OPPORTUNITIES</span>
+            <h3>Vanshika Khandelwal</h3><p>Full Stack Developer · Fresher</p>
+            <div class="profile-mini-stats"><div><strong>9.47</strong><small>CGPA</small></div><div><strong>6+</strong><small>Tech areas</small></div><div><strong>∞</strong><small>Curiosity</small></div></div>
+          </div>
+          <div class="skill-bubble bubble-one">React.js</div><div class="skill-bubble bubble-two">JavaScript</div><div class="skill-bubble bubble-three">Node.js</div>
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> THE PERSON BEHIND THE CODE</div>
+          <h2>Hi, I'm Vanshika.<br>I love to <span class="gradient-text">build for the web.</span></h2>
+          <p class="about-intro">I'm a Computer Science Engineering graduate who enjoys turning ideas into useful, user-friendly web experiences. I’m currently strengthening my full-stack skills through practical projects and continuous learning.</p>
+          <h3 class="skills-title">My toolkit</h3>
+          <div class="skills-list"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Tailwind CSS</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>MySQL</span><span>Git & GitHub</span></div>
+          <div class="about-actions"><a class="button button-primary" href="https://github.com/vanshika2723" target="_blank" rel="noopener noreferrer">View GitHub <span>↗</span></a><a class="text-link" href="https://www.linkedin.com/in/vanshika-khandelwal27" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></div>
+          <p class="profile-note">This portfolio section is editable. Replace the sample avatar with your preferred professional photo whenever you're ready.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy"><div class="eyebrow"><span class="eyebrow-dot"></span> LET'S CONNECT</div><h2>Ready to take your <span class="gradient-text">next step?</span></h2><p>Have a question about a track or want to connect? Send a message using the form.</p><div class="contact-note"><span class="contact-note-icon">✉</span><div><strong>Start a conversation</strong><span>Share your goals and areas of interest.</span></div></div><div class="contact-note"><span class="contact-note-icon">⌘</span><div><strong>Keep building</strong><span>Your next project can start with one message.</span></div></div></div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-heading"><h3>Send a message</h3><p>Fields marked with * are required.</p></div>
+          <div class="form-row"><div class="form-field"><label for="name">Your name *</label><input id="name" name="name" type="text" placeholder="e.g. Aanya Sharma" autocomplete="name" required><small class="field-error" id="nameError"></small></div><div class="form-field"><label for="email">Email address *</label><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required><small class="field-error" id="emailError"></small></div></div>
+          <div class="form-field"><label for="track">Interested track</label><select id="track" name="track"><option value="">Select a domain (optional)</option><option>Full Stack Development</option><option>AI / Machine Learning</option><option>Data Science</option><option>Cloud Computing</option><option>Java Development</option><option>Python Development</option><option>General enquiry</option></select></div>
+          <div class="form-field"><label for="message">Your message *</label><textarea id="message" name="message" rows="4" placeholder="Tell us what you're interested in..." required></textarea><small class="field-error" id="messageError"></small></div>
+          <button class="button button-primary submit-button" type="submit">Validate & Send <span>→</span></button>
+          <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+          <p class="form-disclaimer">Demo form: validation runs in your browser. Connect a backend or form service to deliver messages.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="#home"><span class="brand-mark">L</span> learnix<span class="brand-dot">.</span></a><p>Learn • Build • Perform • Grow</p><span>© <span id="year"></span> Learnix. Crafted with curiosity.</span></div></footer>
+</body>
+</html>
