@@ -9,31 +9,36 @@ const Student = require("./models/Student");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// MongoDB connection
+// MongoDB Connection
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB connected successfully"))
-  .catch((error) => console.error("MongoDB connection error:", error.message));
+  .catch((error) =>
+    console.error("MongoDB connection error:", error.message)
+  );
 
-// Home route
+// Home Route
 app.get("/", (req, res) => {
-  res.json({ message: "Learnix Student Management API is running!" });
+  res.json({
+    message: "Learnix Student Management API is running!"
+  });
 });
 
-// GET: Get all students
+// GET: Get All Students
 app.get("/students", async (req, res) => {
   try {
-    const students = await Student.find();
+    const students = await Student.find().sort({ createdAt: -1 });
     res.json(students);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// POST: Add a student
+// POST: Add Student
 app.post("/students", async (req, res) => {
   try {
     const { name, email, domain, status } = req.body;
@@ -48,10 +53,14 @@ app.post("/students", async (req, res) => {
       name,
       email,
       domain,
-      status
+      status: status || "Active"
     });
 
-    res.status(201).json(student);
+    res.status(201).json({
+      message: "Student added successfully!",
+      student
+    });
+
   } catch (error) {
     res.status(error.code === 11000 ? 409 : 400).json({
       message: error.code === 11000
@@ -61,48 +70,84 @@ app.post("/students", async (req, res) => {
   }
 });
 
-// PUT: Update a student's status
+// PUT: Update Complete Student Details
 app.put("/students/:id", async (req, res) => {
   try {
-    const { status } = req.body;
+    const { name, email, domain, status } = req.body;
 
-    if (!["Active", "Inactive", "Completed"].includes(status)) {
+    // Validation
+    if (!name || !email || !domain || !status) {
       return res.status(400).json({
-        message: "Status must be Active, Inactive, or Completed."
+        message: "All student fields are required."
       });
     }
 
+    if (!["Active", "Inactive", "Completed"].includes(status)) {
+      return res.status(400).json({
+        message: "Invalid student status."
+      });
+    }
+
+    // Update all fields in MongoDB
     const student = await Student.findByIdAndUpdate(
       req.params.id,
-      { status },
-      { new: true, runValidators: true }
+      {
+        name: name.trim(),
+        email: email.trim(),
+        domain,
+        status
+      },
+      {
+        returnDocument: "after",
+        runValidators: true
+      }
     );
 
     if (!student) {
-      return res.status(404).json({ message: "Student not found." });
+      return res.status(404).json({
+        message: "Student not found."
+      });
     }
 
-    res.json(student);
+    res.json({
+      message: "Student updated successfully!",
+      student
+    });
+
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(error.code === 11000 ? 409 : 400).json({
+      message: error.code === 11000
+        ? "This email is already registered."
+        : error.message
+    });
   }
 });
 
-// DELETE: Delete a student
+// DELETE: Delete Student
 app.delete("/students/:id", async (req, res) => {
   try {
     const student = await Student.findByIdAndDelete(req.params.id);
 
     if (!student) {
-      return res.status(404).json({ message: "Student not found." });
+      return res.status(404).json({
+        message: "Student not found."
+      });
     }
 
-    res.json({ message: "Student deleted successfully." });
+    res.json({
+      message: "Student deleted successfully!"
+    });
+
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({
+      message: error.message
+    });
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+// Server Start
+mongoose.connection.once("open", () => {
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
 });

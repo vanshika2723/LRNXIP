@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learnix | Student Management Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <h2 class="logo">Learnix<span>.</span></h2>
+    <p class="nav-heading">MAIN MENU</p>
+    <a class="nav-link active" href="#">▦ &nbsp; Dashboard</a>
+    <a class="nav-link" href="#students">♙ &nbsp; Students</a>
+    <div class="sidebar-bottom">
+      <div class="avatar">VK</div>
+      <div><strong>Administrator</strong><small>Learnix Portal</small></div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">LEARNIX / ADMINISTRATION</p>
+        <h1>Student Dashboard</h1>
+        <p class="subtitle">Manage your students and track their progress.</p>
+      </div>
+      <button id="openModalBtn" class="primary-btn">＋ Add Student</button>
+    </header>
+
+    <section class="stats">
+      <article class="stat-card">
+        <p>Total Students</p><h2 id="totalCount">0</h2><span>Registered students</span>
+      </article>
+      <article class="stat-card">
+        <p>Active Students</p><h2 id="activeCount">0</h2><span>Currently active</span>
+      </article>
+      <article class="stat-card">
+        <p>Completed</p><h2 id="completedCount">0</h2><span>Completed status</span>
+      </article>
+    </section>
+
+    <section id="students" class="table-card">
+      <div class="table-heading">
+        <div>
+          <h2>Student Directory</h2>
+          <p>View and manage registered students.</p>
+        </div>
+        <input id="searchInput" type="search"
+          placeholder="Search name or domain..." aria-label="Search students" />
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+           
+<tr>
+  <th>STUDENT</th>
+  <th>DOMAIN</th>
+  <th>EMAIL</th>
+  <th>STATUS</th>
+  <th>ACTIONS</th>
+</tr>
+
+          </thead>
+          <tbody id="studentTableBody">
+            <tr><td colspan="4" class="empty">Loading students...</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="message" role="status"></p>
+    </section>
+    <footer>© 2026 Learnix Student Management Portal</footer>
+  </main>
+
+  <div id="studentModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button id="closeModalBtn" class="close-btn" aria-label="Close">×</button>
+      <p class="eyebrow">STUDENT DIRECTORY</p>
+      <h2>Add New Student</h2>
+      <p class="subtitle">Enter the student's details below.</p>
+
+      <form id="studentForm">
+        <label for="name">Full Name</label>
+        <input id="name" name="name" required placeholder="Enter full name" />
+
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email" required placeholder="student@example.com" />
+
+        <label for="domain">Domain Track</label>
+        <select id="domain" name="domain" required>
+          <option value="">Select a domain</option>
+          <option>Full Stack Web Development</option>
+          <option>AI/ML</option>
+          <option>Data Science</option>
+          <option>Cloud Computing</option>
+          <option>Java Development</option>
+          <option>Python Development</option>
+        </select>
+
+        <label for="status">Status</label>
+        <select id="status" name="status">
+          <option>Active</option>
+          <option>Inactive</option>
+          <option>Completed</option>
+        </select>
+
+        <p id="formError" class="error" role="alert"></p>
+        <button type="submit" class="primary-btn full-width">Save Student</button>
+      </form>
+    </div>
+  </div>
+
+<div id="editStudentModal" class="modal" aria-hidden="true">
+  <div class="modal-content">
+    <button id="closeEditModalBtn" class="close-btn" aria-label="Close">×</button>
+
+    <p class="eyebrow">STUDENT DIRECTORY</p>
+    <h2>Edit Student</h2>
+    <p class="subtitle">Update student details.</p>
+
+    <form id="editStudentForm">
+      <input type="hidden" id="editStudentId">
+
+      <label for="editName">Full Name</label>
+      <input id="editName" required>
+
+      <label for="editEmail">Email Address</label>
+      <input id="editEmail" type="email" required>
+
+      <label for="editDomain">Domain Track</label>
+      <select id="editDomain" required>
+        <option>Full Stack Web Development</option>
+        <option>AI/ML</option>
+        <option>Data Science</option>
+        <option>Cloud Computing</option>
+        <option>Java Development</option>
+        <option>Python Development</option>
+      </select>
+
+      <label for="editStatus">Status</label>
+      <select id="editStatus" required>
+        <option>Active</option>
+        <option>Inactive</option>
+        <option>Completed</option>
+      </select>
+
+      <p id="editFormError" class="error" role="alert"></p>
+      <button type="submit" class="primary-btn full-width">Update Student</button>
+    </form>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
